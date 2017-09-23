@@ -19,3 +19,5 @@ Recreate a markdown file that has displays the following information (modify REA
 * chatacter(): text data
 * data.frame(): a data set
         *	Or you could use data_frame(). I like them better for reasons we will discuss later in the course.
+
+to make some changes
