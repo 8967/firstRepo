@@ -1,0 +1,40 @@
+reate table course_catalog (
+course_no int,
+title varchar(50),
+credit int,
+syllabus varchar(50),
+primary key(course_no)
+);
+
+create table prerequisit(
+course_no int,
+prerequisit_course_no int,
+primary key(course_no,prerequisit_course_no),
+foreign key(course_no ) references course_catalog(course_no)
+);
+
+create table course_section(
+course_no int,
+year int,
+semester varchar(50),
+section_no int,
+time int,
+classroom int,
+instructor_id int,
+primary key(course_no,year,semester,section_no),
+foreign key(course_no) references prerequisit(course_no)
+);
+
+create table instructor(
+instructor_id int,
+name varchar(20)
+department varchar(50)
+title varchar(50)
+primary key(instructor_id)
+);
+
+create table student(
+student_id int,
+name varchar(20),
+primary key (student_id)
+);
