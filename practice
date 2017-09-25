@@ -1,3 +1,7 @@
 •	git commit: The simulator doesn't support staging files with git add, and it also doesn't support git status. You don't want a separate commit for every single little change, but you also don't want lots of unrelated changes crammed together into one monster commit.
 •	git pull: You won't need to pull often, since you are the only one pushing to the central repository, but you should get in the habit of checking for updates using git pull.
 •	git push: Pushing often is a good way to keep things from getting messy. If you make a bunch of changes and forget to push them, someone else might have also made many 
+
+
+
+some changes
