@@ -1,0 +1,77 @@
+drop table if exists course_catalog;
+drop table if exists prerequisit;
+drop table if exists course_section;
+drop table if exists instructor;
+drop table if exists student;
+drop table if exists student_major;
+drop table if exists enrolls;
+
+
+
+
+
+
+
+
+
+
+create table course_catalog (
+course_no int,
+title varchar(50),
+credit int,
+syllabus varchar(50),
+primary key(course_no)
+);
+
+create table prerequisit(
+course_no int,
+prerequisit_course_no int,
+primary key(course_no,prerequisit_course_no),
+foreign key(course_no ) references course_catalog(course_no)
+);
+
+create table course_section(
+course_no int,
+year int,
+semester varchar(50),
+section_no int,
+time int,
+classroom int,
+instructor_id int,
+primary key(course_no,year,semester,section_no),
+foreign key(course_no) references prerequisit(course_no)
+);
+
+create table instructor(
+instructor_id int,
+name varchar(20)
+department varchar(50)
+title varchar(50)
+primary key(instructor_id)
+);
+
+create table student(
+student_id int,
+name varchar(20),
+primary key (student_id)
+);
+
+create table student_major(
+student_id int,
+major varchar(50),
+primary key(student_id, major),
+foreign key(student_id) references student(student_id)
+);
+
+create table enrolls(
+student_id int,
+course_no int,
+year int,
+semester varchar(50),
+section_no int,
+grade int,
+primary key(student_id, course_no,year, semester,section_no),
+foreign key(student_id) references student(student_id),
+foreign key (student_id) references student_major(student_id),
+foreign key(year,semester,section_no)references course_section(year,semester,section_no)
+);
